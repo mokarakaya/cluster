@@ -39,8 +39,9 @@ public class KMeansRunner extends Runner {
 
         try {
             List<Vector> sampleData = dataCollector.getData();
-            FileWriter fileWriter = new FileWriter(new File(KMeansClusterer.class.getSimpleName()
-                    + this.measure.getClass().getSimpleName()));
+            FileWriter fileWriter = new FileWriter(new File(this.dataCollector.getClass().getSimpleName()
+                    + this.measure.getClass().getSimpleName()
+                    +KMeansClusterer.class.getSimpleName()));
             for (int i = 10; i <= 100; i += 10) {
                 System.out.println("#ofClusters:" + i);
                 Collections.shuffle(sampleData);
