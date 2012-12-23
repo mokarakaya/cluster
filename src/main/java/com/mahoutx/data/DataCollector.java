@@ -12,5 +12,6 @@ import org.apache.mahout.math.Vector;
  * @author p.bell
  */
 public interface DataCollector {
+    
     public List<Vector> getData();
 }
