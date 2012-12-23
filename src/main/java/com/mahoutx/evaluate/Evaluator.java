@@ -2,12 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mahoutx.cluster;
+package com.mahoutx.evaluate;
 
+import com.mahoutx.model.GenCluster;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import org.apache.mahout.clustering.kmeans.Cluster;
+import org.apache.mahout.clustering.Cluster;
+import org.apache.mahout.clustering.DistanceMeasureCluster;
 import org.apache.mahout.common.distance.DistanceMeasure;
 import org.apache.mahout.math.Vector;
 
@@ -17,7 +19,7 @@ import org.apache.mahout.math.Vector;
  */
 public class Evaluator {
 
-    public void evaluateCluster(List<Cluster> clusters, DistanceMeasure measure,
+    public void evaluateCluster(List<GenCluster> clusters, DistanceMeasure measure,
             List<Vector> sampleData, FileWriter fileWriter) throws IOException, Exception {
         double totalInterCluster = 0;
         double totalIntraCluster = 0;
@@ -36,7 +38,7 @@ public class Evaluator {
         fileWriter.append(avgIntraCluster + ";" + avgInterCluster + "\n");
     }
 
-    private double getIntraClusterDistance(List<Cluster> clusters,List<Vector> sampleData, DistanceMeasure measure, Cluster cluster) throws Exception {
+    private double getIntraClusterDistance(List<GenCluster> clusters,List<Vector> sampleData, DistanceMeasure measure, GenCluster cluster) throws Exception {
         double totalDistance = 0;
         int count=0;
         for (Vector vector : sampleData) {
@@ -54,10 +56,10 @@ public class Evaluator {
     }
 
     protected double getDistance(Vector point,
-            Iterable<Cluster> clusters, DistanceMeasure measure, Cluster targetCluster) {
-        Cluster closestCluster = null;
+            Iterable<GenCluster> clusters, DistanceMeasure measure, GenCluster targetCluster) {
+        GenCluster closestCluster = null;
         double closestDistance = Double.MAX_VALUE;
-        for (Cluster cluster : clusters) {
+        for (GenCluster cluster : clusters) {
             double distance = measure.distance(cluster.getCenter(), point);
             if (( !(""+distance).equals("NaN"))&&(closestCluster == null || closestDistance > distance)) {
                 closestCluster = cluster;

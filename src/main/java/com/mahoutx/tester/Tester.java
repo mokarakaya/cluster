@@ -5,8 +5,10 @@
 package com.mahoutx.tester;
 
 import com.mahoutx.cluster.KMeansRunner;
+import com.mahoutx.cluster.MeanShiftCanopyRunner;
 import com.mahoutx.cluster.Runner;
 import com.mahoutx.data.JesterDataCollector;
+import com.mahoutx.data.MovielensDataCollector;
 import org.apache.mahout.common.distance.CosineDistanceMeasure;
 
 /**
@@ -16,7 +18,8 @@ import org.apache.mahout.common.distance.CosineDistanceMeasure;
 public class Tester {
     public static void main(String[] args)
     {
-        Runner runner=new KMeansRunner(new CosineDistanceMeasure(), new JesterDataCollector());
+        
+        Runner runner=new MeanShiftCanopyRunner(new CosineDistanceMeasure(), new JesterDataCollector());
         runner.run();
         
     }
