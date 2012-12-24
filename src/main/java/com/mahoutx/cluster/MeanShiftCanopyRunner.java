@@ -35,7 +35,7 @@ public class MeanShiftCanopyRunner extends Runner{
             FileWriter fileWriter = new FileWriter(new File(this.dataCollector.getClass().getSimpleName()
                     + this.measure.getClass().getSimpleName()
                     +MeanShiftCanopyRunner.class.getSimpleName()));
-            for (double i = 0.5; i <=0.8; i += 0.05) {
+            for (double i = 0.6; i <=1; i += 0.02) {
                 System.out.println("#ofClusters:" + i);
                 Collections.shuffle(sampleData);
                 List<MeanShiftCanopy>finalClusters = MeanShiftCanopyClusterer.clusterPoints(sampleData, this.measure, 0.01,  0.01,i, 10);
