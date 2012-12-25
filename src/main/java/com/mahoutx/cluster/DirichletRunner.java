@@ -44,7 +44,7 @@ public class DirichletRunner extends Runner {
                         new DirichletClusterer(
                         sampleDataWritable,
                         new GaussianClusterDistribution(
-                        new VectorWritable(new DenseVector(1683))),
+                        new VectorWritable(new DenseVector(2178))),
                         1.0, i, 1, 1);
                 List<Cluster[]> finalClusters = dc.cluster(10);
                 fileWriter.append(i + ";");
