@@ -47,7 +47,7 @@ public class MeanShiftCanopyRunner extends Runner {
             }
             fileWriter.close();
         } catch (Exception e) {
-            System.out.println("Error in KMeansRunner " + e.getMessage());
+            System.out.println("Error in MeanShiftCanopyRunner " + e.getMessage());
         }
     }
 

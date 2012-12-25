@@ -56,7 +56,7 @@ public class DirichletRunner extends Runner {
             }
             fileWriter.close();
         } catch (Exception e) {
-            System.out.println("Error in KMeansRunner " + e.getMessage());
+            System.out.println("Error in DirichletRunner " + e.getMessage());
         }
     }
     
